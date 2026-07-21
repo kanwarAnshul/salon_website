@@ -8,12 +8,10 @@ import { cn } from '@/lib/utils';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 
-interface HeaderProps {
-  onMenuToggle?: () => void;
-  isMenuOpen?: boolean;
-}
+import { MobileMenu } from './MobileMenu';
 
-export default function Header({ onMenuToggle, isMenuOpen }: HeaderProps = {}) {
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const progress = useScrollProgress();
 
@@ -74,7 +72,7 @@ export default function Header({ onMenuToggle, isMenuOpen }: HeaderProps = {}) {
               </Link>
 
               <button
-                onClick={onMenuToggle}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full glass/10 text-white transition-colors hover:glass/20"
                 aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               >
@@ -93,6 +91,8 @@ export default function Header({ onMenuToggle, isMenuOpen }: HeaderProps = {}) {
           />
         </div>
       </motion.header>
+      
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 }
