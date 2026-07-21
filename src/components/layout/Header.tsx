@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, X, ChevronLeft } from 'lucide-react';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
@@ -11,6 +12,8 @@ import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { MobileMenu } from './MobileMenu';
 
 export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const progress = useScrollProgress();
@@ -38,15 +41,28 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 z-10">
-              <span className="font-heading text-2xl font-bold tracking-wide text-primary">
-                {SITE_CONFIG.name.split(' ')[0]}
-              </span>
-              <span className="font-heading text-2xl font-light tracking-wide text-white">
-                {SITE_CONFIG.name.split(' ')[1]}
-              </span>
-            </Link>
+            <div className="flex items-center gap-4 z-10">
+              {/* Back Button */}
+              {pathname !== '/' && (
+                <button
+                  onClick={() => router.back()}
+                  className="flex items-center justify-center w-10 h-10 rounded-full glass/10 text-white transition-all hover:glass/20 hover:text-primary group"
+                  aria-label="Go back"
+                >
+                  <ChevronLeft className="h-5 w-5 transition-transform group-hover:-translate-x-0.5" />
+                </button>
+              )}
+              
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-2">
+                <span className="font-heading text-2xl font-bold tracking-wide text-primary">
+                  {SITE_CONFIG.name.split(' ')[0]}
+                </span>
+                <span className="font-heading text-2xl font-light tracking-wide text-white">
+                  {SITE_CONFIG.name.split(' ')[1]}
+                </span>
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">

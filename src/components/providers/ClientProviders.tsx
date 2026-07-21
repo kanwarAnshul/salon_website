@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { ReactLenis } from 'lenis/react';
 import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/layout/Header';
@@ -10,6 +11,7 @@ import FloatingBookButton from '@/components/common/FloatingBookButton';
 import DemoBadge from '@/components/common/DemoBadge';
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const lenisRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
 
