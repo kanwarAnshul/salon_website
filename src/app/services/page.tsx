@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ClientProviders from '@/components/providers/ClientProviders';
 import Services from '@/components/sections/Services';
 
 export const metadata: Metadata = {
@@ -9,18 +10,20 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h1 className="font-heading text-4xl font-bold text-secondary md:text-5xl">
-            Our Services
-          </h1>
-          <p className="mt-4 text-lg text-text-light">
-            Discover our comprehensive range of beauty and grooming services
-          </p>
+    <ClientProviders>
+      <section className="py-20 pt-36">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h1 className="font-heading text-4xl font-bold text-secondary md:text-5xl">
+              Our Services
+            </h1>
+            <p className="mt-4 text-lg text-text-light">
+              Discover our comprehensive range of beauty and grooming services
+            </p>
+          </div>
+          <Services />
         </div>
-        <Services />
-      </div>
-    </section>
+      </section>
+    </ClientProviders>
   );
 }

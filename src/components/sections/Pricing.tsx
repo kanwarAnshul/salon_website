@@ -31,10 +31,10 @@ export default function Pricing() {
 
         <ScrollReveal delay={0.1}>
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-background rounded-full p-1.5">
+            <div className="inline-flex flex-col sm:flex-row bg-background rounded-2xl sm:rounded-full p-1.5 w-full max-w-xs sm:max-w-none sm:w-auto">
               <button
                 onClick={() => setActiveTab('individual')}
-                className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                className={`px-5 sm:px-8 py-3 rounded-xl sm:rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
                   activeTab === 'individual'
                     ? 'bg-primary text-foreground shadow-lg shadow-primary/25'
                     : 'text-text-light hover:text-primary'
@@ -44,13 +44,13 @@ export default function Pricing() {
               </button>
               <button
                 onClick={() => setActiveTab('packages')}
-                className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                className={`px-5 sm:px-8 py-3 rounded-xl sm:rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
                   activeTab === 'packages'
                     ? 'bg-primary text-foreground shadow-lg shadow-primary/25'
                     : 'text-text-light hover:text-primary'
                 }`}
               >
-                Packages & Membership
+                Packages &amp; Membership
               </button>
             </div>
           </div>

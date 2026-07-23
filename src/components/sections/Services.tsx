@@ -37,12 +37,12 @@ export default function Services() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex gap-4 mb-16 overflow-x-auto pb-2 justify-start sm:justify-center scrollbar-none">
             {GENDER_FILTERS.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                className={`flex-shrink-0 px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeFilter === filter.id
                     ? 'bg-primary text-background shadow-lg shadow-primary/25 scale-105'
                     : 'glass text-text-light hover:text-primary hover:border-primary/30 hover:bg-primary/5'

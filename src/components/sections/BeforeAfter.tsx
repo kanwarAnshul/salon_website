@@ -131,7 +131,7 @@ export default function BeforeAfter() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex gap-2 mb-10 overflow-x-auto pb-2 justify-start sm:justify-center scrollbar-none">
             {categories.map((category) => (
               <button
                 key={category}
@@ -142,7 +142,7 @@ export default function BeforeAfter() {
                     setSelectedItem(newFiltered[0]);
                   }
                 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeCategory === category
                     ? 'bg-primary text-foreground'
                     : 'bg-background text-text-light hover:bg-primary/10 hover:text-primary'

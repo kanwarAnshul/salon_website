@@ -45,12 +45,12 @@ export default function Gallery() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex gap-3 mb-12 overflow-x-auto pb-2 justify-start sm:justify-center scrollbar-none">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeCategory === category
                     ? 'bg-primary text-background shadow-lg shadow-primary/25 scale-105'
                     : 'glass text-text-light hover:text-primary hover:border-primary/30'

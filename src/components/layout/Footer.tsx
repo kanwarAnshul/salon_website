@@ -196,7 +196,7 @@ export default function Footer() {
             <p className="text-sm text-white/60 mb-6">
               Get updates on exclusive offers, beauty tips, and more.
             </p>
-            <form onSubmit={handleSubscribe} className="flex gap-3 max-w-md mx-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 value={email}
@@ -207,7 +207,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 whitespace-nowrap"
               >
                 {isSubscribed ? 'Subscribed!' : 'Subscribe'}
               </button>

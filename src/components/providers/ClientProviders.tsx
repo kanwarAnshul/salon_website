@@ -9,6 +9,7 @@ import Preloader from '@/components/common/Preloader';
 import ScrollProgress from '@/components/common/ScrollProgress';
 import FloatingBookButton from '@/components/common/FloatingBookButton';
 import DemoBadge from '@/components/common/DemoBadge';
+import DemoBanner from '@/components/common/DemoBanner';
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -74,6 +75,7 @@ export default function ClientProviders({ children }: { children: React.ReactNod
         duration: 1.2,
       }}
     >
+      <DemoBanner />
       <Preloader />
       <ScrollProgress />
       <Header />
